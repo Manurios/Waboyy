@@ -1,3 +1,13 @@
+          })
+    let time = d.toLocaleTimeString(locale, {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    })
+    let _uptime = process.uptime() * 1000
+    let uptime = clockString(_uptime)
+    let totalreg = Object.keys(global.DATABASE._data.users).length
+    let tags = {
       'main': 'Main',
       'info': 'Info BOT',
       'xp': 'Exp & Limit',
