@@ -1,27 +1,3 @@
-let handler  = async (m, { conn, usedPrefix: _p }) => {
-  try {
-    let exp = global.DATABASE.data.users[m.sender].exp
-    let limit = global.DATABASE.data.users[m.sender].limit
-    let name = conn.getName(m.sender)
-    let d = new Date
-    let locale = 'id'
-    let gmt = new Date(0).getTime() - new Date('1 January 1970').getTime()
-    let weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
-    let week = d.toLocaleDateString(locale, { weekday: 'long' })
-    let date = d.toLocaleDateString(locale, {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    })
-    let time = d.toLocaleTimeString(locale, {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric'
-    })
-    let _uptime = process.uptime() * 1000
-    let uptime = clockString(_uptime)
-    let totalreg = Object.keys(global.DATABASE._data.users).length
-    let tags = {
       'main': 'Main',
       'info': 'Info BOT',
       'xp': 'Exp & Limit',
