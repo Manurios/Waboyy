@@ -1,7 +1,5 @@
 let handler  = async (m, { conn, usedPrefix: _p }) => {
   try {
-    let exp = global.DATABASE.data.users[m.sender].exp
-    let limit = global.DATABASE.data.users[m.sender].limit
     let name = conn.getName(m.sender)
     let d = new Date
     let locale = 'id'
@@ -59,7 +57,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
           if (menu.help) groups[tag].push(menu)
     }
     conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n\nTotal: *%exp XP*\nLimit Anda: *%limit Limit*\nTanggal: *%week, %date*\n Waktu: *%time*\n_Uptime: %uptime_\n  %totalreg User in database\n\nYoutube: https://youtube.com/c/DrawlNag \n\n 🔰Github:🔰\n https://github.com/Arya274/Arya-DN \n\n%readmore`
+    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n\nTotal: *%exp XP*\nLimit Anda: *%limit Limit*\nTanggal: *%week, %date*\n Waktu: *%time*\n_Uptime: %uptime_\n  '
     let header = conn.menu.header || '╭════•›「 %category 」'
     let body   = conn.menu.body   || '┠❥ %cmd%islimit'
     let footer = conn.menu.footer || '╰═══════════════\n'
